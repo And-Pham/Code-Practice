@@ -1,0 +1,14 @@
+C++
+
+- The & operator returns the address value of the variable
+- The * operator returns the value for a given pointer
+
+- The . operator accesses the members of an object given the object
+- The -> operator accesses the members of an object given a pointer
+
+- Stringstream object can be used to treat strings as I/O from the cmd line
+	- ex. You can use the << or >> operators
+
+- There are Python-esque for loops
+	- ex. for (char s : S) where S is a string
+
