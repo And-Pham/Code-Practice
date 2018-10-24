@@ -1,3 +1,7 @@
 C++
 
 - There needs to be ( ) around the conditional statement
+
+- Be careful or pointers.
+	- When an array is passed to a function, a pointer is passed. 
+	- The size of an array can't be determined from a pointer

@@ -9,6 +9,18 @@ C++
 - Stringstream object can be used to treat strings as I/O from the cmd line
 	- ex. You can use the << or >> operators
 
-- There are Python-esque for loops
+- There are Python-esque For loops
 	- ex. for (char s : S) where S is a string
+
+- Bitwise operators works on plain integers
+	- ex.
+		a = 5, b = 9 	// a = 5(00000101), b = 9(00001001) 
+		a&b = 1 		// AND
+		a|b = 13 		// OR
+		a^b = 12		// XOR
+		~a = 250		// NOT
+		b<<1 = 18		// LEFT SHIFT
+		b>>1 = 4		// RIGHT SHIFT
+
+- To pause a program, you can wait for a user input with cin.get()
 
