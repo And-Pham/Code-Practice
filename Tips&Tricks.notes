@@ -1,0 +1,330 @@
+C++
+-----------------------------
+
+- The & operator returns the address value of the variable
+- The * operator returns the value for a given pointer
+
+- The . operator accesses the members of an object given the object
+- The -> operator accesses the members of an object given a pointer
+
+- Stringstream object can be used to treat strings as I/O from the cmd line
+	- ex. You can use the << or >> operators
+
+- There are Python-esque For loops
+	- ex. 
+	[c++]
+	for (char s : S) //where S is a string
+	[c++] 
+
+- Bitwise operators works on plain integers
+	- ex.
+		a = 5, b = 9 	// a = 5(00000101), b = 9(00001001) 
+		a&b = 1 		// AND
+		a|b = 13 		// OR
+		a^b = 12		// XOR
+		~a = 250		// NOT
+		b<<1 = 18		// LEFT SHIFT
+		b>>1 = 4		// RIGHT SHIFT
+
+- To pause a program, you can wait for a user input with cin.get()
+
+- The only difference between a class and a struct in C++ is that structs have default public members and bases and classes have default private members and bases. Both classes and structs can have a mixture of public and private members, can use inheritance, and can have member functions.
+
+- stringstream is useful when wanting to concantenate non-string types into a string
+	- Can take any "input from any type that defines operator<< to std::istream, and also from primitives types."
+	- Can convert a stringstream to string with .str()
+	- Designed for formatting
+
+- NULL pointer is defined in <iostream>
+	- It represents the memory location at 0
+	- Can be used to check if a pointer is NULL/points to 0
+		- 	[c++]
+				if (!ptr) // If pointer is null then the statement will execute
+			[c++]
+	- Unassigned/uninitalized pointers will have random garbage
+
+- Pointer Arthimetic: ++, --, +, -
+	- You can access the value of an array at an index without changing the value with a pointer
+	- You can increment/decrement through the array with ++ and --
+	- You can do pointer comparisons with ==, <, >
+		- Useful for when comparing indices of arrays
+
+- You initialize a pointer with *
+	- ex. int *ptr, float *ptr.
+	- The actual pointer has the data type of a long hexadecimal
+	- The intialize type refers to the variable being pointed to
+	- To access the value that the ptr refers to you use "*ptr"
+
+- Arrays and pointers are strongly related
+	- The name of an array is a constant pointer to the first index of the array
+	- You cannot change the POINTER value but you can change the value the pointer references
+		- ex. if var is the name of an array,
+			[c++]
+			*var = [SOME VALUE]; // Acceptable
+			var++;				// Not Acceptable
+			[c++]
+
+- There are pointers of pointers (self-explantory)
+	- Initialize with int **ptr
+
+- Pass By Value: Copies the argument. You can't change the original value
+
+- Pass By Reference: Copies the address. You can change the original value because you reference the address
+	- ex. void main(int& x, int& y)
+
+- Pass by Pointer: Copies the pointer. You can change the original value because you reference the address
+	- ex. void main(int* x, int* y)
+
+- Key differences between pass by reference and pass by pointer
+	1. A pointer can be re-assigned while reference cannot, and must be assigned at initialization only.
+	2. Pointer can be assigned NULL directly, whereas reference cannot.
+	3. Pointers can iterate over an array, we can use ++ to go to the next item that a pointer is pointing to.
+	4. A pointer is a variable that holds a memory address. A reference has the same memory address as the item it references.
+	5. A pointer to a class/struct uses ‘->'(arrow operator) to access it’s members whereas a reference uses a ‘.'(dot operator)
+	6. A pointer needs to be dereferenced with * to access the memory location it points to, whereas a reference can be used directly.
+
+- Use references when you can, and pointers when you have to.
+	- If you want to write code that works for both C and C++ compilers, then you have to use pointers
+
+- If you return a pointer, the variable referenced must be "static" (global) otherwise you refernce an internal variable
+
+- Map Data Struct:
+	- Functions:
+		1. insert: insert a pair
+		2. count: returns the number of things of a key
+
+- STL Algorithms:
+	1. sort(first_iterator, last_iterator)
+	2. reverse(first_iterator, last_iterator)
+	3. *max_element(first_iterator, last_iterator)
+	4. *min_element(first_iterator, last_iterator)
+	5. accumulate(first_iterator, last_iterator, init_sum)
+	6. count(first_iterator, last_iterator, x) // return number of occurences of x in vector
+	7. find(first_iterator, last_iterator, x)
+	8. binary_search(first_iterator, last_iterator, x) //test if x in SORTED vector
+	9. lower_bound(first_iterator, last_iterator, x)	// returns interator of first element not less than x
+	10. upper_bound(first_iterator, last_iterator, x) // returns iterator of first elemetn greater than x
+	11. arr.erase(pos)
+	12. arr.erase(unique(arr.begin(), arr.end()), arr.end()) // deletes duplicate items
+	13. next_permutation(first_iterator, last_iterator)
+	14. prev_permutation(first_iterator, last_iterator)
+	15. distance(first, desired_postion)	// returns distance of desired position from the first iterator,
+											// Useful for finding the index of element
+
+- Array Algorithms: 
+	1. all_of(first_iterator, last_iterator, Lambda_function)
+	2. any_of(first_iterator, last_iterator, Lambda_function)
+	3. none_of(first_iterator, last_iterator, Lambda_function)
+	4. copy_n(arr, length, new_arr) //deep copy of array
+	5. iota(arr, length, start_num) // returns array of start_num:start_num+length
+
+
+- Lambda Expressions:
+	[c++]
+	[ capture clause ] (parameters) -> return-type  
+	{   
+	   definition of method   
+	} 
+	[c++]
+	- captureclause:  specifies how the parameters are accessed (by refernce or value)
+	- parameters: inputs for functions
+	- return-type: the type or return, usually handled automatically but compiler can get confused with conditionals 
+
+- Partion Algorithms:
+	1. partition(first_iterator, last_iterator, Lambda_function)
+	2. is_partitioned(first_iterator, last_iterator, Lambda_function)
+	3. stable_partition(first_iterator, last_iterator, Lambda_function) // partitions but keeps relative order
+	4. partion_point(first_iterator, last_iterator, Lambda_function) // returns point thta the ALREADY PARITIONED arry is partitioned at
+	5. partition_copy(first_iterator, last_iterator, new_arr_1_first_iterator, new_arr_2_first_iterator, Lambda_function) // copies the paritions into two seperate arrays
+
+- Reference vs. Pointer vs. Iterator
+	1. Reference vs. Pointer
+		a. A pointer needs to be dereferenced, a reference does not (it is an alias for the object)
+		b. A pointer can be changed to point to another object, reference only point to the init object
+		c. A pointer can point to void, a refernce cannot refernce void
+		d. A pointer can have a constant value (always points to a single memory address even if the value at the address changes). A refernce cannot
+		e. Legal: Pointer/refernce to array of pointers, Illegal: Pointer/refernce to array of references
+	2. Pointer vs. Iterator
+		a. A pointer is an iterator, but an iterator is not necessarily a pointer
+		b. A pointer is an object of *T where T is an object or function, An iterator is either a pointer or a class
+		c. A pointer points to a memory location, an iterator doesn't necessarily have to. It just has to produce the value somehow
+			- Therefore, pointers can be converted to integers while iterators cannot
+		d. You can do Arthimetic (++, --, + int) with pointers but not all iterators
+		e. A pointer *T can point to any arbitrary T. A [c++] vector<int>::iterator [c++] can only point to ints inside the vector.
+		f. You cannot call delete on an iterator
+- Containers/Data Sturctures:
+	0. Pair
+		- pair <data_type1, data_type2> pair_name;
+		- First element is referenced as "first"
+		- Second element is referenced as "second"
+		- Can be assigned, copied, and compared.
+		- Objects in maps are pairs by default
+			- First = Key, Second = Value
+		- To access,
+			- pair_name.first, pair_name.second;
+	1. Sequence Containers
+		a. vector
+			- dynamic arrays
+			- traversed with iterators, 
+			- data inserted at end is amortized O(1)
+			- removing O(1), no resizing
+			- Inserting, erasing not at end is O(N)
+		b. list 
+			- slow traversal
+			- quick insertion and deletion
+			- doubly linked list
+		c. deque (double-sided queue) 
+			- Add or delete from either side of container 
+			- Similar to vector, but better at insert and delete at ends
+			i. queue
+				- FIFO
+			ii. priority_queue
+				- FIFO, first element is the greatest
+			iii. stack
+				- LIFO
+		d. arrays 
+			- instead of arr[ ], array< > ar
+			- Advantages over C-style arrays (arr[ ])
+				- Array knows its size, don't have to pass as parameter
+				- Doesn't decay into pointer?
+				- Usually more efficient, light-weight, and reliable
+		e. forward_list
+			- singly linked list
+			- Smaller storage compared to list/doubly linked lists
+			- Better when only need to forward traverse
+				- ex: chaining for hashing, adjacency list of graph
+	2. Associative Containers
+		f. sets 
+			- Only unique values
+			- Immutable elements
+			- Can add or delete elements
+			i. multiset
+				- Can have repeated values
+				- Immutable elements
+				- Can add or delete elements
+				- Useful where you have repeatable values but they cannot be change just added or removed
+					- ex: Shopping cart
+		g. map 
+			- Key : element
+			- No duplicate keys/ no two mapped values can have same key values
+			- To check if key in map, use find()
+				- If key not found, returns map.end()
+				- map.end() is "past-the-end element" it does not point to any element, won't be dereferenced
+			i. multimap
+				- Duplicate keys/ two mapped values can have same key values
+				- Good if you don't need an intermediate vector/ only a couple of duplicate keys
+
+
+	Reference: https://www.geeksforgeeks.org/the-c-standard-template-library-stl/
+
+- String/Vector Operations
+	- To insert at the beginning of a string/vector...
+		[c++]
+			vector.insert(pos, size, val);
+		[c++]
+		where pos is an iterator pointing to the start of the insertion location, size is the number of inserts,
+		and val is the element inserted
+
+
+
+
+General
+--------------------------------------------------------------
+
+Dynamic Programming:
+	- If you think the problem is a DP problem, you should immediately think of...
+		1. What the base cases are
+		2. How can you fill a matrix/vector to hold the information
+			a. What does the element represent?
+			b. What do the indices represent?
+	EX: Longest Palindrome
+	[c++]
+		class Solution {
+		public:
+		    string longestPalindrome(string s) {
+		        int N = s.size();
+		        
+		        if (N == 0){
+		            return "";
+		        }
+		        
+		        bool pali_matrix[N][N] = {false};
+		        int max_len = 1;
+		        
+		        // 1 Letter Case
+		        for (int i = 0; i < N; i++){
+		            pali_matrix[i][i] = true;
+		        }
+		        
+		        // 2 Letter Case
+		        int pali_start = 0;
+		        for (int i = 0; i < N-1; i++){
+		            if (s[i] == s[i+1]){
+		                pali_matrix[i][i+1] = true;
+		                pali_start = i;
+		                max_len = (i+1) - i + 1;
+		            }
+		        }
+		        
+		        // K Letter Case
+		        for (int k = 3; k <= N; k++){
+		            for (int i = 0; i <= N - k; i++){
+		                int j = i + k - 1;
+		                
+		                if (pali_matrix[i+1][j-1] && s[i] == s[j]){
+		                    pali_matrix[i][j] = true;
+		                    
+		                    if (k > max_len){
+		                        pali_start = i;
+		                        max_len = k;
+		                    }
+		                }
+		            }
+		        }
+		        
+		        return s.substr(pali_start, max_len);
+		        
+		    }
+		};
+		[c++]
+
+Binary Search:
+	- While the low_idx is less than the high_idx
+	- Omit the median by setting low_idx = med_idx + 1 or high_idx = med_idx - 1
+	
+Linked List Search:
+	- Remember to account for empty linked list based case
+		- Check if the list is NULL not the value
+
+Tree Traversal Uses:
+	- Inorder
+		- Gives nodes in nondecreasing order
+	- Postorder
+		- Used to delete tree
+	- Preorder
+		- Used to copy tree
+
+*TIP* Remember bitwise operaters, you can make the code really elegant by &= previous boolean result with most recent boolean result function call
+
+Sorting:
+	- Insertion vs. Selection Sort 
+		- Insertion and Selection are both O(N^2)
+		- However, they can perform better on smaller data sets compared to O(N logN) sorting Algorithms
+		- Insertion is worst case O(N^2) while Selection is alwasy O(N^2)
+		- However, selection is O(N) with regards to number of writes, so this can be better for flash memory where writing data is expensive
+	- List of Algs:
+		1. Bubble Sort - Go pair wise through the list swapping to get the smaller element on the left, pass through list until no more swaps
+		2. Selection Sort - Start at begin of array, find smallest element, swap, move to next array element, repeat 
+		3. Insertion Sort - Traverse through array, insert element in correct place relative to the elements already traversed 
+		4. Merge Sort - Continually split the lists in half, merge the list back in order 
+		5. Quick Sort - Pick an element to pivot around, put all elements less than pivot in the left array, put all elements greater than pivot in right array, repeat quick sort on the arrays 
+		6. Bucket Sort - a "presorting" technique, distribute the elements into "buckets" making the subarrays smaller and to make the sorting easier
+		7. Radiix Sort - a specialized bucket sort based on the fact that integers have finite number of bits. Sort numbers based on most siginificant bit into buckets of [0-9]. Then sort buckets similarly
+		8. Heap Sort - Create a max heap from list (a complete binary tree where the parent node is greater than the children). Pop the root, swap with bottom leaf, and place value at end of list. Repeat sorting, until tree is only one node
+
+Searching:
+	- List of Algs:
+		1. Binary Search - Continually split the sorted list, search the side of the list the that target would be in 
+		2. Interpolation Search - Similar to binary search, but instead of splitting the list in half, it splits it proportionally based upon the target value relative to the range of the list
+								- Works if numbers are uniformly distributed 
+

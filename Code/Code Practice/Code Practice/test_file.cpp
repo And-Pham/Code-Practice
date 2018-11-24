@@ -2,6 +2,7 @@
 #include "vector_range.h"
 #include "bfs_ex.h"
 #include "tree_traversals.h"
+#include "bubble_sort.h"
 
 /*
 Main function that calls the test functions of the different coded practice programs

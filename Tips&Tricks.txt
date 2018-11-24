@@ -24,3 +24,56 @@ C++
 
 - To pause a program, you can wait for a user input with cin.get()
 
+- The only difference between a class and a struct in C++ is that structs have default public members and bases and classes have default private members and bases. Both classes and structs can have a mixture of public and private members, can use inheritance, and can have member functions.
+
+- stringstream is useful when wanting to concantenate non-string types into a string
+	- Can take any "input from any type that defines operator<< to std::istream, and also from primitives types."
+	- Can convert a stringstream to string with .str()
+	- Designed for formatting
+
+- NULL pointer is defined in <iostream>
+	- It represents the memory location at 0
+	- Can be used to check if a pointer is NULL/points to 0
+		- ex. if (!ptr) // If pointer is null then the statement will execute
+	- Unassigned/uninitalized pointers will have random garbage
+
+- Pointer Arthimetic: ++, --, +, -
+	- You can access the value of an array at an index without changing the value with a pointer
+	- You can increment/decrement through the array with ++ and --
+	- You can do pointer comparisons with ==, <, >
+		- Useful for when comparing indices of arrays
+
+- You initialize a pointer with *
+	- ex. int *ptr, float *ptr.
+	- The actual pointer has the data type of a long hexadecimal
+	- The intialize type refers to the variable being pointed to
+	- To access the value that the ptr refers to you use "*ptr"
+
+- Arrays and pointers are strongly related
+	- The name of an array is a constant pointer to the first index of the array
+	- You cannot change the POINTER value but you can change the value the pointer references
+		- ex. if var is the name of an array,
+			*var = [SOME VALUE]; // Acceptable
+			var++;				// Not Acceptable
+
+- There are pointers of pointers (self-explantory)
+	- Initialize with int **ptr
+
+- Pass By Value: Copies the argument. You can't change the original value
+
+- Pass By Reference: Copies the address. You can change the original value because you reference the address
+	- ex. void main(int& x, int& y)
+
+- Pass by Pointer: Copies the pointer. You can change the original value because you reference the address
+	- ex. void main(int* x, int* y)
+
+- Key differences between pass by reference and pass by pointer
+	1. A pointer can be re-assigned while reference cannot, and must be assigned at initialization only.
+	2. Pointer can be assigned NULL directly, whereas reference cannot.
+	3. Pointers can iterate over an array, we can use ++ to go to the next item that a pointer is pointing to.
+	4. A pointer is a variable that holds a memory address. A reference has the same memory address as the item it references.
+	5. A pointer to a class/struct uses ‘->'(arrow operator) to access it’s members whereas a reference uses a ‘.'(dot operator)
+	6. A pointer needs to be dereferenced with * to access the memory location it points to, whereas a reference can be used directly.
+
+- Use references when you can, and pointers when you have to.
+	- If you want to write code that works for both C and C++ compilers, then you have to use pointers
