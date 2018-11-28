@@ -88,6 +88,8 @@ C++
 
 - If you return a pointer, the variable referenced must be "static" (global) otherwise you refernce an internal variable
 
+- & can be used to create a reference type or... it can be used as an operator to get the address of object
+
 - Map Data Struct:
 	- Functions:
 		1. insert: insert a pair
@@ -225,6 +227,7 @@ C++
 		where pos is an iterator pointing to the start of the insertion location, size is the number of inserts,
 		and val is the element inserted
 
+*TIP* Best way to get subvector of vector is to create to vector and initalize with pointers to beginning and end
 
 
 
@@ -328,5 +331,4 @@ Searching:
 		2. Interpolation Search - Similar to binary search, but instead of splitting the list in half, it splits it proportionally based upon the target value relative to the range of the list
 								- Works if numbers are uniformly distributed 
 
-Test Test
 
